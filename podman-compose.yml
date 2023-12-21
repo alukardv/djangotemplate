@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  web:
+    image: web
+    build:
+      context: .
+      dockerfile: Containerfile
+    volumes:
+      - .:/app/
+      - static:/static
+      - media:/media
+    ports:
+      - "8000:8000"
+
+networks:
+  my_network:
+    driver: bridge
